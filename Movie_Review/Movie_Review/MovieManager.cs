@@ -108,5 +108,43 @@ namespace Movie_Review
                 Console.WriteLine($"{u.username} has rated {u.totalReviews} and has status {u.status}");
             }
         }
+
+        public void printReviews()
+        {
+            foreach(Reviews r in reviewList)
+            {
+                Console.WriteLine($"{r.username} has rated {r.moviename} with ratings {r.rating}");
+            }
+        }
+
+        public int reviewsLength()
+        {
+            return reviewList.Count;
+        }
+
+        //Top N movies of a particular genre
+
+        //Avarage Rating of a Movie
+        public void AvgRating(string mName)
+        {
+            double rating = 0;
+            double count = 0;
+            foreach(Reviews r in reviewList)
+            {
+                if(r.moviename==mName)
+                {
+                    rating += r.rating;
+                    count++;
+                }
+            }
+            if(count==0)
+            {
+                Console.WriteLine("Movie not rated yet");
+            }
+            else
+            {
+                Console.WriteLine($"Avarage Rating of {mName} is {rating/count}");
+            }
+        }
     }
 }

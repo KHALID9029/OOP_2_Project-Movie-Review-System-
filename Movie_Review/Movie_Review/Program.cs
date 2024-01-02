@@ -10,6 +10,11 @@ namespace Movie_Review
     {
         static void Main(string[] args)
         {
+            MovieManager manager = new MovieManager();
+            while (true) 
+            {
+                Console.WriteLine("Press 1 to add");
+            }
         }
     }
 }
