@@ -1,0 +1,7 @@
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Debug\Movie_Review.exe.config
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Debug\Movie_Review.exe
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Debug\Movie_Review.pdb
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\obj\Debug\Movie_Review.csproj.AssemblyReference.cache
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\obj\Debug\Movie_Review.csproj.CoreCompileInputs.cache
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\obj\Debug\Movie_Review.exe
+C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\obj\Debug\Movie_Review.pdb

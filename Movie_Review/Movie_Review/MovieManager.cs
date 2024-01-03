@@ -18,6 +18,15 @@ namespace Movie_Review
             users.Add(U);
         }
 
+        public bool checkUniqueUser(string username)
+        {
+            foreach(User user in users)
+            {
+                if(user.username == username) return false;
+            }
+            return true;
+        }
+
         public void addMovie(string moviename, int yearOfRelease, List<string> genre)
         {
             Movie m = new Movie(moviename, yearOfRelease, genre);
