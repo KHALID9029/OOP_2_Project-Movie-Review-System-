@@ -8,9 +8,9 @@ namespace Movie_Review
 {
     internal class MovieManager
     {
-        private List<User> users=new List<User>();
-        private List<Movie> movies=new List<Movie>();
-        private List<Reviews> reviewList=new List<Reviews>();
+        public List<User> users=new List<User>();
+        public List<Movie> movies=new List<Movie>();
+        public List<Reviews> reviewList=new List<Reviews>();
 
         public void addUser(string username)
         {
@@ -114,7 +114,7 @@ namespace Movie_Review
         {
             foreach(User u in users)
             {
-                Console.WriteLine($"{u.username} has rated {u.totalReviews} and has status {u.status}");
+                Console.WriteLine($"{u.username} has rated {u.totalReviews} movies and has status {u.status}");
             }
         }
 

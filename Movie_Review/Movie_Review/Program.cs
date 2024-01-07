@@ -15,7 +15,7 @@ namespace Movie_Review
             while (true) 
             {
                 string[] options = {"Add New User","Add New Movie","Add New Review"
-                        , "Print Movies", "Print Users", "Print Reviews", "Avarage Score"
+                        , "Print Movies", "Print Users", "Print Reviews", "Avarage Rating"
                         };
 
                 Menu menu = new Menu(options);
@@ -24,20 +24,24 @@ namespace Movie_Review
                 switch(inp)
                 {
                     case 0:
+                        Console.Clear();
                         Console.WriteLine("Enter UserName: ");
                         string username=Console.ReadLine();
 
                         if(manager.checkUniqueUser(username))
                         {
                             manager.addUser(username);
+                            Console.WriteLine("User added successfully");
                         }
                         else
                         {
                             throw new Exception("User With this name already exists! Please Try another Name!");
                         }
+                        //Console.WriteLine(manager.users.Count);
                         break;
 
                     case 1:
+                        Console.Clear();
                         Console.WriteLine("Enter Movie Name: ");
                         string moviename=Console.ReadLine();
                         Console.WriteLine("Enter Year Of Release : ");
@@ -56,6 +60,7 @@ namespace Movie_Review
                         break;
 
                     case 2:
+                        Console.Clear();
                         Console.WriteLine("Enter User Name : ");
                         username= Console.ReadLine();
                         Console.WriteLine("Enter Movie Name: ");
@@ -90,15 +95,19 @@ namespace Movie_Review
                         break;
 
                     case 3:
+                        Console.Clear();
                         manager.printMovies();
                         break; 
                     case 4:
+                        Console.Clear();
                         manager.printUsers();
                         break;
                     case 5:
+                        Console.Clear();
                         manager.printReviews();
                         break;
                     case 6:
+                        Console.Clear();
                         Console.WriteLine("Enter Movie Name : ");
                         moviename = Console.ReadLine();
                         manager.AvgRating(moviename); 
@@ -107,6 +116,7 @@ namespace Movie_Review
                         Console.WriteLine("Invalid Entry");
                         break;
                 }
+                Console.ReadLine();
             }
         }
     }
