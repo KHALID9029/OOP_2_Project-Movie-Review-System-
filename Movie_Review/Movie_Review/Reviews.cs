@@ -18,5 +18,10 @@ namespace Movie_Review
             this.moviename = moviename;
             this.rating = rating;
         }
+
+        public void printInfo()
+        {
+            Console.WriteLine($"{this.username} has rated {this.moviename} with rating {this.rating}/10");
+        }
     }
 }

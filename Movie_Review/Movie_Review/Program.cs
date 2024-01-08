@@ -11,7 +11,12 @@ namespace Movie_Review
     {
         static void Main(string[] args)
         {
+             List<User> users = new List<User>();
+             List<Movie> movies = new List<Movie>();
+             List<Reviews> reviewList = new List<Reviews>();
+
             MovieManager manager = new MovieManager();
+
             while (true) 
             {
                 string[] options = {"Add New User","Add New Movie","Add New Review"
@@ -25,92 +30,66 @@ namespace Movie_Review
                 {
                     case 0:
                         Console.Clear();
-                        Console.WriteLine("Enter UserName: ");
-                        string username=Console.ReadLine();
-
-                        if(manager.checkUniqueUser(username))
-                        {
-                            manager.addUser(username);
-                            Console.WriteLine("User added successfully");
-                        }
-                        else
-                        {
-                            throw new Exception("User With this name already exists! Please Try another Name!");
-                        }
+                        manager.addUser(ref users);
                         //Console.WriteLine(manager.users.Count);
                         break;
 
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Enter Movie Name: ");
-                        string moviename=Console.ReadLine();
-                        Console.WriteLine("Enter Year Of Release : ");
-                        int year=Convert.ToInt32 (Console.ReadLine());
-                        Console.WriteLine("Enter Total Number Of Geners: ");
-                        int numofGenres=Convert.ToInt32 (Console.ReadLine());
-                        Console.WriteLine("Enter Genres: ");
-                        List<string> genres = new List<string>();
-                        while(numofGenres>0)
-                        {
-                            string genresString = Console.ReadLine();
-                            genres.Add(genresString);
-                            numofGenres--;
-                        }
-                        manager.addMovie(moviename,year,genres);
+                        manager.addMovie(ref movies);
                         break;
 
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Enter User Name : ");
-                        username= Console.ReadLine();
-                        Console.WriteLine("Enter Movie Name: ");
-                        moviename=Console.ReadLine();
-                        Console.WriteLine("Enter Rating: ");
-                        int rating=Convert.ToInt32 (Console.ReadLine());
-
-                        if(manager.findMovieByName(moviename))
-                        {
-                            if(manager.reviewsLength()==0)
-                            {
-                                manager.updateUser(username);
-                                manager.addReviews(username,moviename,rating);
-                            }
-                            else
-                            {
-                                if(!manager.findSameReview(username,moviename,rating))
-                                {
-                                    manager.updateUser(username);
-                                    manager.addReviews(username, moviename, rating);
-                                }
-                                else
-                                {
-                                    throw new Exception("Multiple Reviews Not Allowed");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            throw new Exception("Movie Not Yet Released");
-                        }
+                        manager.addReviews(ref users, ref reviewList, ref movies);
                         break;
 
                     case 3:
                         Console.Clear();
-                        manager.printMovies();
+                        foreach (Movie movie in movies)
+                        {
+                            movie.printInfo();
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("All the movies have been printed");
+                        Console.WriteLine();
+                        Console.WriteLine("Press Any Key To Continue");
+                        
                         break; 
+                    
                     case 4:
                         Console.Clear();
-                        manager.printUsers();
+                        foreach(User user in users)
+                        {
+                            user.printInfo();
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("All the users have been printed");
+                        Console.WriteLine();
+                        Console.WriteLine("Press Any Key To Continue");
+                        
                         break;
+                    
                     case 5:
                         Console.Clear();
-                        manager.printReviews();
+                        foreach(Reviews reviews in reviewList)
+                        {
+                            reviews.printInfo();
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("All the reviews have been printed");
+                        Console.WriteLine();
+                        Console.WriteLine("Press Any Key To Continue");
+                        
                         break;
+                    
                     case 6:
                         Console.Clear();
-                        Console.WriteLine("Enter Movie Name : ");
-                        moviename = Console.ReadLine();
-                        manager.AvgRating(moviename); 
+                      
+                        manager.AvgRating(ref reviewList); 
                         break;
                     default:
                         Console.WriteLine("Invalid Entry");

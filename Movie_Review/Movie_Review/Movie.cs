@@ -18,5 +18,10 @@ namespace Movie_Review
             this.yearOfRelease = yearOfRelease;
             this.genre = genre;
         }
+
+        public void printInfo()
+        {
+            Console.WriteLine($"{this.movieName} is released in Year {this.yearOfRelease}");
+        }
     }
 }

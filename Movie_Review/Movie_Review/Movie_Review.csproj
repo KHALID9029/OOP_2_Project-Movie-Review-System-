@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMovieAdder.cs" />
+    <Compile Include="IReviewAdder.cs" />
     <Compile Include="IUserAdder.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Movie.cs" />

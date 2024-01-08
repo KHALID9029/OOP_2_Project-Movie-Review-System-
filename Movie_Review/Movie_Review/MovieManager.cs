@@ -8,134 +8,32 @@ namespace Movie_Review
 {
     internal class MovieManager
     {
-        public List<User> users=new List<User>();
-        public List<Movie> movies=new List<Movie>();
-        public List<Reviews> reviewList=new List<Reviews>();
-
-        public void addUser(string username)
+        public void addUser(ref List<User>users)
         {
-            User U = new User(username);
-            users.Add(U);
+            IUserAdder userAdder = new UserAdder();
+            userAdder.addUser(ref users);
         }
 
-        public bool checkUniqueUser(string username)
+        
+
+        public void addMovie(ref List<Movie> movies)
         {
-            foreach(User user in users)
-            {
-                if(user.username == username) return false;
-            }
-            return true;
+            IMovieAdder movieAdder = new MovieAdder();
+            movieAdder.addMovie(ref movies);
         }
 
-        public void addMovie(string moviename, int yearOfRelease, List<string> genre)
+        public void addReviews(ref List<User> users, ref List<Reviews> reviews, ref List<Movie> movies)
         {
-            Movie m = new Movie(moviename, yearOfRelease, genre);
-            movies.Add(m);
+            IReviewAdder reviewAdder = new ReviewAdder();
+            reviewAdder.addReview(ref users,ref reviews,ref movies);
         }
-
-        public void addReviews(string name, string moviename, int rating)
-        {
-            bool youCanAddReview=false;
-
-            try
-            {
-                foreach (User u in users)
-                {
-                    if (u.username == name)
-                    {
-                        if (u.status == "Critic")
-                        {
-                            rating *= 2;
-                            youCanAddReview = true;
-                        }
-                        else
-                        {
-                            youCanAddReview = true;
-                        }
-                    }
-                }
-                if (youCanAddReview)
-                {
-                    Reviews reviews = new Reviews(name, moviename, rating);
-                    reviewList.Add(reviews);
-                    foreach (User user in users)
-                    {
-                        if (user.username == name) { user.totalReviews++; break; }
-                    }
-                }
-            }
-            catch (Exception e) { Console.WriteLine(e.Message); }
-        }
-
-        public bool findMovieByName(string mName)
-        {
-            foreach(Movie movie in movies) 
-            {
-                if(movie.movieName==mName && movie.yearOfRelease<2025)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool findSameReview(string username, string moviename,int rating)
-        {
-            foreach(Reviews r in reviewList)
-            {
-                if(r.moviename==moviename && r.username==username)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public void updateUser(string username)
-        {
-            foreach(User user in users)  
-            {
-                if(user.username==username && user.totalReviews>3)
-                {
-                    user.status = "Critic";
-                }
-            }
-        }
-
-        public void printMovies()
-        {
-            foreach (Movie movie in movies)
-            {
-                Console.WriteLine($"{movie.movieName} is released in Year {movie.yearOfRelease}");
-            }
-        }
-
-        public void printUsers()
-        {
-            foreach(User u in users)
-            {
-                Console.WriteLine($"{u.username} has rated {u.totalReviews} movies and has status {u.status}");
-            }
-        }
-
-        public void printReviews()
-        {
-            foreach(Reviews r in reviewList)
-            {
-                Console.WriteLine($"{r.username} has rated {r.moviename} with ratings {r.rating}");
-            }
-        }
-
-        public int reviewsLength()
-        {
-            return reviewList.Count;
-        }
-
-        //Top N movies of a particular genre
 
         //Avarage Rating of a Movie
-        public void AvgRating(string mName)
+        public void AvgRating(ref List<Reviews>reviewList)
         {
+            Console.WriteLine("Enter Movie Name : ");
+            string mName=Console.ReadLine();
+
             double rating = 0;
             double count = 0;
             foreach(Reviews r in reviewList)
@@ -152,7 +50,13 @@ namespace Movie_Review
             }
             else
             {
-                Console.WriteLine($"Avarage Rating of {mName} is {rating/count}");
+                double ans=rating/count;
+                string formattedAns = $"{ans:F2}";
+                Console.WriteLine();
+                Console.WriteLine($"Avarage Rating of {mName} is {formattedAns}");
+
+                Console.WriteLine();
+                Console.WriteLine("Press Any Key To Continue");
             }
         }
     }
