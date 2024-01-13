@@ -28,6 +28,9 @@ namespace Movie_Review
                 Console.WriteLine();
                 Console.WriteLine("User added successfully");
 
+                WriteUser writeUser = new WriteUser();
+                writeUser.Write(U);
+
                 Console.WriteLine();
                 Console.WriteLine("Press Any Key To Continue");
                 

@@ -11,16 +11,26 @@ namespace Movie_Review
     {
         static void Main(string[] args)
         {
-             List<User> users = new List<User>();
-             List<Movie> movies = new List<Movie>();
-             List<Reviews> reviewList = new List<Reviews>();
+            List<User> users = new List<User>();
+            List<Movie> movies = new List<Movie>();
+            List<Reviews> reviewList = new List<Reviews>();
+
+            ReadMovies readMovies = new ReadMovies();
+            readMovies.Read(ref movies);
+
+            ReadUsers readUsers = new ReadUsers();
+            readUsers.Read(ref users);
+
+            ReadReviews readReviews = new ReadReviews();
+            readReviews.Read(ref reviewList);
+
 
             MovieManager manager = new MovieManager();
 
             while (true) 
             {
                 string[] options = {"Add New User","Add New Movie","Add New Review"
-                        , "Print Movies", "Print Users", "Print Reviews", "Avarage Rating"
+                        , "Print Movies", "Print Users", "Print Reviews", "Avarage Rating", "Quit"
                         };
 
                 Menu menu = new Menu(options);
@@ -36,7 +46,30 @@ namespace Movie_Review
 
                     case 1:
                         Console.Clear();
-                        manager.addMovie(ref movies);
+
+                        string[] options2 = { "Adventure Movie", "Thriller Movie", "Action Movie"};
+                        Menu menu2 = new Menu(options2);
+                        int inp2 = menu2.Run();
+
+                        switch(inp)
+                        {
+                            case 0:
+                                Console.Clear();
+                                manager.addAdventureMovie(ref movies);
+                                break;
+                            case 1:
+                                Console.Clear();
+                                manager.addThrillerMovie(ref movies);
+                                break;
+                            case 2:
+                                Console.Clear();
+                                manager.addActionMovie(ref movies);
+                                break;
+                           
+                            default:
+                                Console.WriteLine("Invalid Input");
+                                break;
+                        }
                         break;
 
                     case 2:
@@ -91,6 +124,11 @@ namespace Movie_Review
                       
                         manager.AvgRating(ref reviewList); 
                         break;
+                    
+                    case 7:
+                        Environment.Exit(0);
+                        break;
+                    
                     default:
                         Console.WriteLine("Invalid Entry");
                         break;

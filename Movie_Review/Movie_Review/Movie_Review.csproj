@@ -44,10 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMovieAdder.cs" />
+    <Compile Include="IRead.cs" />
     <Compile Include="IReviewAdder.cs" />
     <Compile Include="IUserAdder.cs" />
+    <Compile Include="IWrite.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="MovieFactory.cs" />
     <Compile Include="MovieManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

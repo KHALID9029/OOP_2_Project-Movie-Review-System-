@@ -25,9 +25,10 @@ namespace Movie_Review
             Console.WriteLine("Enter Rating (_/10): ");
             int rating = Convert.ToInt32(Console.ReadLine());
 
-            IMovieAdder movieAdder = new MovieAdder();
+            
 
             bool youCanAddReview = false;
+            bool movieExists = false;
 
             try
             {
@@ -42,10 +43,15 @@ namespace Movie_Review
                         youCanAddReview = true;
                     }
                 }
-                if (youCanAddReview)
+
+                foreach(Movie movie in movies)
                 {
-                    if (movieAdder.doesMovieExists(moviename, ref movies))
-                    {
+                    if(movie.movieName==moviename) movieExists = true;
+                }
+
+                if (youCanAddReview && movieExists)
+                {
+                    
                         if (!doesReviewExists(ref reviews, username, moviename))
                         {
                             Reviews review = new Reviews(username, moviename, rating);
@@ -54,6 +60,10 @@ namespace Movie_Review
                             Console.WriteLine();    
                             Console.WriteLine($"{username} rated movie {moviename} with {rating}/10 ratings");
                             Console.WriteLine();
+
+                            WriteReview writeReview=new WriteReview();
+                            writeReview.Write(review);
+
                             Console.WriteLine("Press Any Key To Continue");
                             
                             foreach (User user in users)
@@ -61,7 +71,7 @@ namespace Movie_Review
                                 if (user.username == username) { user.totalReviews++; user.updateUser(); break; }
                             }
                         }
-                    }
+                    
                 }
             }
             catch (Exception e) { Console.WriteLine(e.Message); }

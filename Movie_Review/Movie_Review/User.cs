@@ -21,6 +21,13 @@ namespace Movie_Review
             this.totalReviews = 0;
         }
 
+        public User(string username, string status , int totalReviews) 
+        {
+            this.username = username;
+            this.status = status;
+            this.totalReviews = totalReviews;
+        }
+
         public void printInfo()
         {
             Console.WriteLine($"{this.username} has rated {this.totalReviews} movies and has status {this.status}");
