@@ -1,0 +1,10 @@
+khalid,Pokemon,9
+khalid,Gone Girl,8
+khalid,Die Hard,8
+khalid,Terminator 2: Judgment Day,7
+khalid,The Matrix,7
+khalid,John Wick,10
+khalid,The Silence of the Lambs,8
+khalid,Memento,9
+khalid,The Departed,6
+khalid,The Revenant,8

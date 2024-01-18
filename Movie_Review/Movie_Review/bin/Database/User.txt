@@ -1,0 +1,3 @@
+khalid,Critic,10
+hasan,viewer,0
+ador,viewer,0

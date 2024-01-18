@@ -1,0 +1,16 @@
+Indiana Jones: Raiders of the Lost Ark,1981,Adventure
+Jurassic Park,1993,Adventure
+The Lord of the Rings: The Fellowship of the Ring,2001,Adventure
+Pirates of the Caribbean: The Curse of the Black Pearl,2003,Adventure
+The Revenant,2015,Adventure
+Die Hard,1988,Action
+Terminator 2: Judgment Day,1991,Action
+The Matrix,1999,Action
+Mad Max: Fury Road,2015,Action
+John Wick,2014,Action
+The Silence of the Lambs,1991,Thriller
+Gone Girl,2014,Thriller
+Memento,2000,Thriller
+The Departed,2006,Thriller
+Prisoners,2013,Thriller
+Pokemon,2002,Adventure

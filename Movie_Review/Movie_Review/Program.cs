@@ -30,7 +30,7 @@ namespace Movie_Review
             while (true) 
             {
                 string[] options = {"Add New User","Add New Movie","Add New Review"
-                        , "Print Movies", "Print Users", "Print Reviews", "Avarage Rating", "Quit"
+                        , "Print Movies", "Print Users", "Print Reviews", "Average Rating", "Quit"
                         };
 
                 Menu menu = new Menu(options);
@@ -50,17 +50,19 @@ namespace Movie_Review
                         string[] options2 = { "Adventure Movie", "Thriller Movie", "Action Movie"};
                         Menu menu2 = new Menu(options2);
                         int inp2 = menu2.Run();
-
-                        switch(inp)
+                        
+                        switch(inp2)
                         {
                             case 0:
                                 Console.Clear();
                                 manager.addAdventureMovie(ref movies);
                                 break;
+
                             case 1:
                                 Console.Clear();
                                 manager.addThrillerMovie(ref movies);
                                 break;
+
                             case 2:
                                 Console.Clear();
                                 manager.addActionMovie(ref movies);

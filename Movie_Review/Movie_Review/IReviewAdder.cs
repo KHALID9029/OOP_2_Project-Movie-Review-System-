@@ -61,17 +61,25 @@ namespace Movie_Review
                             Console.WriteLine($"{username} rated movie {moviename} with {rating}/10 ratings");
                             Console.WriteLine();
 
-                            WriteReview writeReview=new WriteReview();
+                            IWrite<Reviews> writeReview=new WriteReview();
                             writeReview.Write(review);
 
                             Console.WriteLine("Press Any Key To Continue");
                             
                             foreach (User user in users)
                             {
-                                if (user.username == username) { user.totalReviews++; user.updateUser(); break; }
+                                if (user.username == username) { user.totalReviews++; user.updateUser(user); break; }
                             }
                         }
-                    
+                        else
+                        {
+                        Console.WriteLine("\nCan not review the same movie twice.");
+                        }
+                }
+                else
+                {
+                    Console.WriteLine("\nUser or movie does not exists");
+                    Console.WriteLine("\nPress Any Key to Continue");
                 }
             }
             catch (Exception e) { Console.WriteLine(e.Message); }

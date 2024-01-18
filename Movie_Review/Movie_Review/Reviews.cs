@@ -21,7 +21,7 @@ namespace Movie_Review
 
         public void printInfo()
         {
-            Console.WriteLine($"{this.username} has rated {this.moviename} with rating {this.rating}/10");
+            Console.WriteLine($"* {this.username} has rated {this.moviename} with rating {this.rating}/10");
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Movie_Review
 
         public void printInfo()
         {
-            Console.WriteLine($"{this.movieName} is released in Year {this.yearOfRelease} and it's a {this.genre} Movie");
+            Console.WriteLine($"* {this.movieName} is released in Year {this.yearOfRelease} and it's a {this.genre} Movie");
         }
     }
 

@@ -16,7 +16,8 @@ namespace Movie_Review
     {
         public void Write(User user) 
         {
-            string user_file = @"C:\OOP2_Project\User.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string user_file = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\User.txt");
             string info = $"{user.username},{user.status},{user.totalReviews}\n";
             File.AppendAllText(user_file, info);
         }
@@ -26,7 +27,8 @@ namespace Movie_Review
     {
         public void Write(Movie movie)
         {
-            string movieFile = @"C:\OOP2_Project\Movies.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string movieFile = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\Movies.txt");
             string info = $"{movie.movieName},{movie.yearOfRelease},{movie.genre}\n";
             File.AppendAllText(movieFile, info);
         }
@@ -36,7 +38,8 @@ namespace Movie_Review
     {
         public void Write(Reviews review) 
         {
-            string reviewFile = @"C:\OOP2_Project\Reviews.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string reviewFile = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\Reviews.txt");
             string info = $"{review.username},{review.moviename},{review.rating}\n";
             File.AppendAllText(reviewFile, info);
         }

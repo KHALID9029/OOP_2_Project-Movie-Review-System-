@@ -18,19 +18,19 @@ namespace Movie_Review
 
         public void addAdventureMovie(ref List<Movie> movies)
         {
-            AdventureMovieAdder movieAdder = new AdventureMovieAdder();
+            IMovieAdder movieAdder = new AdventureMovieAdder();
             movieAdder.addMovie(ref movies);
         }
 
         public void addActionMovie(ref List<Movie> movies)
         {
-            ActionMovieAdder movieAdder = new ActionMovieAdder();
+            IMovieAdder movieAdder = new ActionMovieAdder();
             movieAdder.addMovie(ref movies);
         }
 
         public void addThrillerMovie(ref List<Movie> movies)
         {
-            ThrillerMovieAdder movieAdder = new ThrillerMovieAdder();
+            IMovieAdder movieAdder = new ThrillerMovieAdder();
             movieAdder.addMovie(ref movies);
         }
 

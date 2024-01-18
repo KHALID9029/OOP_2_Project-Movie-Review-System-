@@ -28,7 +28,7 @@ namespace Movie_Review
                 Console.WriteLine();
                 Console.WriteLine("User added successfully");
 
-                WriteUser writeUser = new WriteUser();
+                IWrite<User> writeUser = new WriteUser();
                 writeUser.Write(U);
 
                 Console.WriteLine();
@@ -37,7 +37,7 @@ namespace Movie_Review
             }
             else
             {
-                throw new Exception("User With this name already exists! Please Try another Name!");
+                Console.WriteLine("User With this name already exists! Please Try another Name!");
             }           
         }
 

@@ -16,7 +16,8 @@ namespace Movie_Review
     {
         public void Read(ref List<User> users)
         {
-            string user_file = @"C:\OOP2_Project\User.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string user_file = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\User.txt");
 
             if (File.Exists(user_file))
             {
@@ -45,7 +46,8 @@ namespace Movie_Review
     {
         public void Read( ref List<Movie> movies) 
         {
-            string movieFile = @"C:\OOP2_Project\Movies.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string movieFile = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\Movies.txt");
 
             if (File.Exists(movieFile))
             {
@@ -77,7 +79,8 @@ namespace Movie_Review
     {
         public void Read(ref List<Reviews> reviews) 
         {
-            string reviewFile = @"C:\OOP2_Project\Reviews.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string reviewFile = Path.Combine(baseDirectory, @"C:\ClassResources Sem-03\SWE 4302 OOP LAB\Lab Final Project\Movie_Review\Movie_Review\bin\Database\Reviews.txt");
             if (File.Exists(reviewFile)) 
             {
                 StreamReader sr = new StreamReader(reviewFile);

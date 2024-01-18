@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Movie_Review
 {
-    internal interface IMovieAdder
+    public interface IMovieAdder
     {
         void addMovie(ref List<Movie> movies);
 
         bool doesMovieExists(string moviename, ref List<Movie> movies);
     }
 
-    internal class AdventureMovieAdder:IMovieAdder
+    public class AdventureMovieAdder:IMovieAdder
     {
         public void addMovie(ref List<Movie> movies)
         {
@@ -28,13 +28,13 @@ namespace Movie_Review
                 Movie m = new AdventureMovie(moviename, year);
                 movies.Add(m);
 
-                Console.WriteLine($"{m.genre}");
-                Console.ReadLine();
+                //Console.WriteLine($"{m.genre}");
+                //Console.ReadLine();
 
                 Console.WriteLine();
                 Console.WriteLine("Movie Added Successfully");
 
-                WriteMovie writeMovie = new WriteMovie();
+                IWrite<Movie> writeMovie = new WriteMovie();
                 writeMovie.Write(m);
 
                 Console.WriteLine();
@@ -57,7 +57,7 @@ namespace Movie_Review
         }
     }
 
-    internal class ThrillerMovieAdder:IMovieAdder
+    public class ThrillerMovieAdder:IMovieAdder
     {
         public void addMovie(ref List<Movie> movies)
         {
@@ -75,7 +75,7 @@ namespace Movie_Review
                 Console.WriteLine();
                 Console.WriteLine("Movie Added Successfully");
 
-                WriteMovie writeMovie = new WriteMovie();
+                IWrite<Movie> writeMovie = new WriteMovie();
                 writeMovie.Write(m);
 
                 Console.WriteLine();
@@ -98,7 +98,7 @@ namespace Movie_Review
         }
     }
 
-    internal class ActionMovieAdder:IMovieAdder
+    public class ActionMovieAdder:IMovieAdder
     {
         public void addMovie(ref List<Movie> movies)
         {
@@ -116,7 +116,7 @@ namespace Movie_Review
                 Console.WriteLine();
                 Console.WriteLine("Movie Added Successfully");
 
-                WriteMovie writeMovie = new WriteMovie();
+                IWrite<Movie> writeMovie = new WriteMovie();
                 writeMovie.Write(m);
 
                 Console.WriteLine();
