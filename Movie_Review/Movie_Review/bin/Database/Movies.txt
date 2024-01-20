@@ -14,3 +14,4 @@ Memento,2000,Thriller
 The Departed,2006,Thriller
 Prisoners,2013,Thriller
 Pokemon,2002,Adventure
+avatar,2002,Adventure

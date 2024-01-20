@@ -8,3 +8,4 @@ khalid,The Silence of the Lambs,8
 khalid,Memento,9
 khalid,The Departed,6
 khalid,The Revenant,8
+hamim,avatar,8
